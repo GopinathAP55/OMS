@@ -1,0 +1,42 @@
+
+
+    <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)">  
+
+        <input class="form-control" required type="text" placeholder="User Name" name="userName" [ngModel]="user.userName" #userName="ngModel">  
+        <div class="form-group" *ngIf="userName.errors && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">  
+            <div *ngIf="userName.errors.required">  
+                <span class="textboxInvalid">User Name Required</span>
+            </div>
+        </div>
+
+        <input class="form-control" required type="text" placeholder="Full Name" name="fullName" [ngModel]="user.fullName" #fullName="ngModel">  
+        <div class="form-group" *ngIf="fullName.errors && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">  
+            <div *ngIf="fullName.errors.required">  
+                <span class="textboxInvalid">Full Name Required</span>
+            </div>
+        </div>
+
+        <input class="form-control" required type="Email" placeholder="Email" name="email" [ngModel]="user.email" [pattern]="emailPattern" #email="ngModel">  
+        <div class="form-group" *ngIf="email.errors && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">  
+          <div *ngIf="email.errors.pattern ">  
+              <span class="textboxInvalid">Enter Valid Email</span>
+          </div> 
+          <div *ngIf="email.errors.required ">  
+            <span class="textboxInvalid">Email Required</span>
+        </div>   
+        </div>
+
+          <input class="form-control" required placeholder="Phone Number"name="mobileNumber" [ngModel]="user.mobileNumber" [pattern]="mobNumberPattern" #mobNumber="ngModel">  
+           <div class="form-group" *ngIf="mobNumber.errors && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">  
+             <div *ngIf="mobNumber.errors.pattern">  
+                 <span class="textboxInvalid">Enter Valid Mobile Number</span>
+             </div>   
+             <div *ngIf="mobNumber.errors.required ">  
+                <span class="textboxInvalid">Phone Number Required</span>
+            </div>  
+           </div>  
+        
+           <button class="btn btn-primary signup"> Submit</button>    
+       </form>  
+   
+   

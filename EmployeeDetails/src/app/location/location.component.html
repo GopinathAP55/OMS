@@ -1,0 +1,29 @@
+
+
+    <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)">  
+
+        <input class="form-control" required type="text" placeholder="Location ID" name="locationId" [ngModel]="location.locationId" #locationId="ngModel">  
+        <div class="form-group" *ngIf="locationId.errors && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">  
+            <div *ngIf="locationId.errors.required">  
+                <span class="textboxInvalid">Location ID Required</span>
+            </div>
+        </div>
+
+        <input class="form-control" required type="text" placeholder="User Location ID" name="userLocationId" [ngModel]="location.userLocationId" #userLocationId="ngModel">  
+        <div class="form-group" *ngIf="userLocationId.errors && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">  
+            <div *ngIf="userLocationId.errors.required">  
+                <span class="textboxInvalid">User Location ID Required</span>
+            </div>
+        </div>       
+
+        <input class="form-control" required type="text" placeholder="User ID" name="fullName" [ngModel]="location.userId" #userId="ngModel">  
+        <div class="form-group" *ngIf="userId.errors && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">  
+            <div *ngIf="userId.errors.required">  
+                <span class="textboxInvalid">User ID required</span>
+            </div>
+        </div>    
+        
+           <button class="btn btn-primary signup"> Submit</button>    
+       </form>  
+   
+   
